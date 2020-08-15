@@ -4,7 +4,6 @@ import com.countiespower.api.user.register.dto.UserDto;
 import com.countiespower.api.user.register.service.UsersService;
 import com.countiespower.api.user.register.ui.model.UserResponse;
 import com.countiespower.api.user.register.utils.MapperUtils;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
@@ -65,20 +64,18 @@ public class UsersController {
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-
-//        List<UserDto> usersDto = usersService.getUsers();
-//
-//        List<UserResponse> responseList = MapperUtils.mapAll(usersDto, UserResponse.class);
-//        return ResponseEntity.status(HttpStatus.OK).body(responseList);
     }
 
     @GetMapping(value = "/{userId}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<UserResponse> getUser(@PathVariable("userId") String userId) {
 
-        UserDto userDto = usersService.getUserByUserId(userId);
-        UserResponse returnValue = MapperUtils.map(userDto, UserResponse.class);
-        return ResponseEntity.status(HttpStatus.OK).body(returnValue);
+        try {
+            UserDto userDto = usersService.getUserByUserId(userId);
+            UserResponse returnValue = MapperUtils.map(userDto, UserResponse.class);
+            return ResponseEntity.status(HttpStatus.OK).body(returnValue);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/status/check")
