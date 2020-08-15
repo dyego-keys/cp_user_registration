@@ -11,10 +11,11 @@ phases:
   build:
     commands:
       - echo building the Counties Power User Registration API
-      - mvn install
+      - mvn package
 artifacts:
   files:
-    - target/*.jar
+    - target/register-0.0.1-SNAPSHOT.jar
+    - scripts/*.sh
     - appspec.yml
   discard-paths: yes
 cache:
