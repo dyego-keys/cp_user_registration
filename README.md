@@ -8,6 +8,7 @@
 1. [Introduction](#introduction)
 2. [Prerequisites](#prerequisites)
 3. [Development](#development)
+4. [Test Endpoints](#Test Endpoints)
 
 ## Introduction
 
@@ -37,3 +38,25 @@ To build the project execute the following command:
 To run the project execute the following command:
 
     ./java -jar register-0.0.1-SNAPSHOT.jar
+
+## Test Endpoints
+
+Login:
+    POST http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users/login
+    
+Get all users:
+    
+    GET http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users?size=100
+    
+Get users by Last Name:
+
+    GET http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users?lastName=Robertson
+    
+Post new user:
+
+    POST http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users
+
+    
+    
+    
+
