@@ -44,6 +44,14 @@ To run the project execute the following command:
 
 The app defines following CRUD APIs.
 
+    POST /users/login
+    
+        BODY
+            {
+                "email":"{email}",
+                "password":"{password}"
+            }
+    
     GET /users
     
     GET users/{userId}
@@ -55,24 +63,55 @@ The app defines following CRUD APIs.
     GET users?psge={page} (optional, default page = 0)
     
     POST /users
+    
+        BODY
+            {
+                "firstName":"{firstName}",
+                "lastName":"{lastName}",
+                "email":"{email}",
+                "password":"{password}"
+            }
 
 ## Test
+
+Examples:
 
 Login:
     
     POST http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users/login
     
+    BODY
+        {
+            "email":"root@countiespower.com",
+            "password":"password"
+        }
+    
+    RESPONSE
+        {
+            "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
+        }
+    
 Get all users:
     
     GET http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users?size=100
+    
+    HEADER:
+        Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
+        
     
 Get users by Last Name:
 
     GET http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users?lastName=Robertson
     
+    HEADER:
+        Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
+    
 Post new user:
 
     POST http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users
+    
+    HEADER:
+        Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
 
     
     
