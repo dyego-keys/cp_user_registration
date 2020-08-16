@@ -1,12 +1,8 @@
-# <img src="https://github.com/tino097/awesome-spring-boot-rest-api/raw/master/spring-logo.png" align="absmiddle"/> User Registration Rest API for Counties Power Tech Test
+# <img src="https://github.com/tino097/awesome-spring-boot-rest-api/raw/master/spring-logo.png" align="absmiddle"/>
+User Registration Rest API for Counties Power Tech Test
 
 [![Wercker](https://img.shields.io/badge/spring--boot-2.1.5.RELEASE-green.svg?style=flat-square&logo=spring)](https://spring.io/projects/spring-boot)
 [![Wercker](https://img.shields.io/badge/java-11-blue.svg?style=flat-square&logo=java)](https://openjdk.java.net/install/)
-![GitHub issues](https://img.shields.io/github/issues-raw/tino097/awesome-spring-boot-rest-api?style=flat-square)
-![GitHub labels](https://img.shields.io/github/labels/tino097/awesome-spring-boot-rest-api/help%20wanted?style=flat-square)
-![GitHub labels](https://img.shields.io/github/labels/tino097/awesome-spring-boot-rest-api/good%20first%20issue?style=flat-square)
-
-## \*TODO: Improve the readme file
 
 ## Table of contents
 
@@ -24,9 +20,8 @@ REST endpoint for that purpose. Additionally it will be an option to add Owners 
 
 ## Prerequisites
 
-- Java 1.8+
-- Gradle 6.1.1
-- Docker
+- Java 11
+- Maven 3
 
 ---
 
@@ -34,8 +29,8 @@ REST endpoint for that purpose. Additionally it will be an option to add Owners 
 
 Please clone or fork the repo:
 
-    git clone https://github.com/tino097/awesome-spring-boot-rest-api.git
+    git clone https://github.com/dyego-keys/cp_user_registration.git
 
 To build the project execute the following command:
 
-    ./gradlew build
+    ./java -jar register-0.0.1-SNAPSHOT.jar
