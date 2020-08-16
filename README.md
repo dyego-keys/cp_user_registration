@@ -41,13 +41,14 @@ To run the project execute the following command:
 The app defines following CRUD APIs.
 
     POST /users/login
-        ```
+
+```
         BODY
             {
                 "email":"{email}",
                 "password":"{password}"
             }
-        ```
+```
     
     GET /users
     
