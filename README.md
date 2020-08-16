@@ -50,9 +50,9 @@ The app defines following CRUD APIs.
     
     GET users?lastName={lastName} (optional)
     
-    GET users?size={size} (optional, size = 3)
+    GET users?size={size} (optional, default size = 3)
     
-    GET users?psge={page} (optional, page = 0)
+    GET users?psge={page} (optional, default page = 0)
     
     POST /users
 
