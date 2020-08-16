@@ -72,7 +72,7 @@ The app defines following API's endpoints.
     Email: john.smith@countiespower.com
     Password: password
     
-**Test URL:** http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com 
+**Test URL:** http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users/status/check
 
 **Login**:
     
