@@ -120,6 +120,14 @@ The app defines following API's endpoints.
 
     POST http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users
     
+    BODY
+        {
+           "firstName":"Walter",
+           "lastName":"White",
+           "email":"heisenberg@meth.com",
+           "password":"secretpassword"
+        }
+    
     HEADER:
         Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
         
