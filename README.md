@@ -13,11 +13,7 @@
 
 ## Introduction
 
-Spring Boot is an extension of the Spring framework. It can be used to skip boilerplate code for configuring the applications.
-In this example we will use its powerful and easy approach to give an example of how to build awesome REST API.
-
-For that purpose we will create an application which can be used as Company catalogue. We will be able to add, edit and delete companies and expose
-REST endpoint for that purpose. Additionally it will be an option to add Owners or Industries to specific company
+Spring Boot Rest User registration API for Counties Power Tech Test
 
 ## Prerequisites
 
@@ -45,12 +41,13 @@ To run the project execute the following command:
 The app defines following CRUD APIs.
 
     POST /users/login
-    
+        ```
         BODY
             {
                 "email":"{email}",
                 "password":"{password}"
             }
+        ```
     
     GET /users
     
