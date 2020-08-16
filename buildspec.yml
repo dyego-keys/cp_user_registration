@@ -24,6 +24,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo pushing to repo
+      - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
