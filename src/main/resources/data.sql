@@ -27,5 +27,5 @@ insert into users (user_id, first_name, last_name, email, password)
 values('d2565657-c26d-4602-b487-cffc35e3c7ae','Ana','Amuchastegui','amuana@amazon.com','$2y$12$dqWpjHU7y/CKtbXEde65kOD88TeqdgzDlR5uoOvVd4o9jCMcz7yya');
 
 insert into users (user_id, first_name, last_name, email, password)
-values('770a3672-ff1e-40e6-8839-e2565e3768ea','John','Smith','root@countiespower.com','$2y$12$dqWpjHU7y/CKtbXEde65kOD88TeqdgzDlR5uoOvVd4o9jCMcz7yya');
+values('770a3672-ff1e-40e6-8839-e2565e3768ea','John','Smith','john.smith@countiespower.com','$2y$12$dqWpjHU7y/CKtbXEde65kOD88TeqdgzDlR5uoOvVd4o9jCMcz7yya');
 
