@@ -76,15 +76,15 @@ The app defines following API's endpoints.
 
 **Login**:
     
-    *POST* http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users/login
+    POST http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users/login
     
-    *BODY*
+    BODY
         {
             "email":"root@countiespower.com",
             "password":"password"
         }
     
-    *RESPONSE*
+    RESPONSE
         {
             "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
         }
@@ -93,23 +93,23 @@ The app defines following API's endpoints.
     
 **Get all users:**
     
-    *GET* http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users?size=100
+    GET http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users?size=100
     
-    *HEADER:*
+    HEADER:
         Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
         
     
 **Get users by Last Name:**
 
-    *GET* http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users?lastName=Robertson
+    GET http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users?lastName=Robertson
     
-    *HEADER:*
+    HEADER:
         Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
     
 **Post new user:**
 
-    *POST* http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users
+    POST http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users
     
-    *HEADER:*
+    HEADER:
         Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
         
