@@ -5,19 +5,29 @@ import com.countiespower.api.user.register.data.UserRepository;
 import com.countiespower.api.user.register.dto.UserDto;
 import com.countiespower.api.user.register.service.UsersService;
 import com.countiespower.api.user.register.utils.MapperUtils;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.UUID;
 import java.util.function.Function;
 
 @Service
 public class UsersServiceImpl implements UsersService {
 
-    @Autowired
     UserRepository userRepository;
+    BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    public UsersServiceImpl(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
 
     @Override
     public Page<UserDto> getUsers(Pageable paging) {
@@ -50,5 +60,22 @@ public class UsersServiceImpl implements UsersService {
             }
         });
         return userDtos;
+    }
+
+    @Override
+    public UserDto createUser(UserDto userDto) {
+
+        userDto.setUserId(UUID.randomUUID().toString());
+        userDto.setEncryptedPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
+
+        ModelMapper mm  = new ModelMapper();
+        mm.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+
+        UserEntity userEntity = mm.map(userDto, UserEntity.class);
+
+        UserEntity savedUserEntity = userRepository.save(userEntity);
+
+        UserDto savedUserDto = mm.map(savedUserEntity, UserDto.class);
+        return savedUserDto;
     }
 }

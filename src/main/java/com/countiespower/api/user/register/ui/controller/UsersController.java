@@ -3,10 +3,10 @@ package com.countiespower.api.user.register.ui.controller;
 import com.countiespower.api.user.register.config.JwtTokenUtil;
 import com.countiespower.api.user.register.dto.UserDto;
 import com.countiespower.api.user.register.service.UsersService;
-import com.countiespower.api.user.register.ui.model.JwtRequest;
-import com.countiespower.api.user.register.ui.model.JwtResponse;
-import com.countiespower.api.user.register.ui.model.UserResponse;
+import com.countiespower.api.user.register.ui.model.*;
 import com.countiespower.api.user.register.utils.MapperUtils;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
@@ -23,6 +23,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -97,10 +98,34 @@ public class UsersController {
         }
     }
 
+    @PostMapping(consumes =
+            {
+                    MediaType.APPLICATION_JSON_VALUE,
+                    MediaType.APPLICATION_XML_VALUE
+            }, produces =
+            {
+                    MediaType.APPLICATION_JSON_VALUE,
+                    MediaType.APPLICATION_XML_VALUE
+            })
+    public ResponseEntity<CreateUserResponseModel> createUser(@Valid @RequestBody CreateUserRequestModel userDetails) {
+
+        ModelMapper mm = new ModelMapper();
+        mm.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+
+        UserDto userDto = mm.map(userDetails, UserDto.class);
+
+        UserDto savedUser = usersService.createUser(userDto);
+
+        CreateUserResponseModel responseUser = mm.map(savedUser, CreateUserResponseModel.class);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseUser);
+    }
+
     @GetMapping("/status/check")
     public String status() {
         return "Working on port " + env.getProperty("local.server.port");
     }
+
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {

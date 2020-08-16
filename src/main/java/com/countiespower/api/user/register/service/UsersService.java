@@ -10,4 +10,5 @@ public interface UsersService {
     Page<UserDto> getUsers(Pageable paging);
     UserDto getUserByUserId(String userId);
     Page<UserDto> getUserByLastName(String lastName, Pageable paging);
+    UserDto createUser(UserDto userDto);
 }
