@@ -8,7 +8,7 @@
 1. [Introduction](#introduction)
 2. [Prerequisites](#prerequisites)
 3. [Development](#development)
-4. [Test Endpoints](#Test Endpoints)
+4. [Test](#Test)
 
 ## Introduction
 
@@ -43,7 +43,7 @@ To run the project execute the following command:
 
 Login:
     
-    POST (http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users/login)
+    POST http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users/login
     
 Get all users:
     
