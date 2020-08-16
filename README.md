@@ -39,7 +39,7 @@ To run the project execute the following command:
 
     ./java -jar register-0.0.1-SNAPSHOT.jar
 
-## Test Endpoints
+## Test
 
 Login:
     
