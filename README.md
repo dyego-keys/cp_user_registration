@@ -8,7 +8,8 @@
 1. [Introduction](#introduction)
 2. [Prerequisites](#prerequisites)
 3. [Development](#development)
-4. [Test](#Test)
+4. [Explore](#explore)
+5. [Test](#Test)
 
 ## Introduction
 
@@ -38,6 +39,22 @@ To build the project execute the following command:
 To run the project execute the following command:
 
     ./java -jar register-0.0.1-SNAPSHOT.jar
+
+## Explore
+
+The app defines following CRUD APIs.
+
+    GET /users
+    
+    GET users/{userId}
+    
+    GET users?lastName={lastName} (optional)
+    
+    GET users?size={size} (optional, size = 3)
+    
+    GET users?psge={page} (optional, page = 0)
+    
+    POST /users
 
 ## Test
 
