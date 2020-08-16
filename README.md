@@ -32,4 +32,8 @@ Please clone or fork the repo:
 
 To build the project execute the following command:
 
+    ./mvn package
+
+To run the project execute the following command:
+
     ./java -jar register-0.0.1-SNAPSHOT.jar
