@@ -46,13 +46,21 @@ The app defines following API's endpoints.
                 "email":"{email}",
                 "password":"{password}"
             }
+        RESPONSE
+            {
+                "token":"..token string generated.."
             
     GET /users?lastName={lastName}&size={size}&page={page}
-    
-        Optionals:
-            lastName, size (default=3), page (default=0)
+    HEADER
+        Authorization: {token value}
+        
+    Optionals:
+        lastName, size (default=3), page (default=0)
+            
     
     GET users/{userId}
+    HEADER
+        Authorization: {token value}
         
     POST /users
         BODY
@@ -62,6 +70,8 @@ The app defines following API's endpoints.
                 "email":"{email}",
                 "password":"{password}"
             }
+    HEADER
+        Authorization: {token value}
 
 ## Test
 
@@ -80,7 +90,7 @@ The app defines following API's endpoints.
     
     BODY
         {
-            "email":"root@countiespower.com",
+            "email":"john.smith@countiespower.com",
             "password":"password"
         }
     
