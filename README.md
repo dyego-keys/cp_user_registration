@@ -89,7 +89,7 @@ Login:
             "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
         }
         
-# Copy the token received from the last call to the rest of the header calls
+## Copy the token received from the last call to the rest of the header calls
     
 Get all users:
     
