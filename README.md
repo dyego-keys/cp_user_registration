@@ -38,30 +38,23 @@ To run the project execute the following command:
 
 ## Explore
 
-The app defines following CRUD APIs.
+The app defines following API's endpoints.
 
     POST /users/login
-
-```
         BODY
             {
                 "email":"{email}",
                 "password":"{password}"
             }
-```
+            
+    GET /users?lastName={lastName}&size={size}&page={page}
     
-    GET /users
+        Optionals:
+            lastName, size (default=3), page (default=0)
     
     GET users/{userId}
-    
-    GET users?lastName={lastName} (optional)
-    
-    GET users?size={size} (optional, default size = 3)
-    
-    GET users?psge={page} (optional, default page = 0)
-    
+        
     POST /users
-    
         BODY
             {
                 "firstName":"{firstName}",
@@ -72,46 +65,51 @@ The app defines following CRUD APIs.
 
 ## Test
 
-Login:
+**Test user:**
+
+    First Name: John
+    Last Name: Smith
+    Email: john.smith@countiespower.com
+    Password: password
     
-    POST http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users/login
+**Test URL:** http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com 
+
+**Login**:
     
-    BODY
+    *POST* http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users/login
+    
+    *BODY*
         {
             "email":"root@countiespower.com",
             "password":"password"
         }
     
-    RESPONSE
+    *RESPONSE*
         {
             "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
         }
         
-## Copy the token received from the last call to the rest of the header calls
+**Copy the token received from the last call to the rest of the header's calls**
     
-Get all users:
+**Get all users:**
     
-    GET http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users?size=100
+    *GET* http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users?size=100
     
-    HEADER:
+    *HEADER:*
         Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
         
     
-Get users by Last Name:
+**Get users by Last Name:**
 
-    GET http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users?lastName=Robertson
+    *GET* http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users?lastName=Robertson
     
-    HEADER:
+    *HEADER:*
         Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
     
-Post new user:
+**Post new user:**
 
-    POST http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users
+    *POST* http://ec2-13-211-167-240.ap-southeast-2.compute.amazonaws.com:8080/users
     
-    HEADER:
+    *HEADER:*
         Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkeWVnby5jaGF2ZXpAZ21haWwuY29tIiwiZXhwIjoxNTk3NjEwM...."
-
-    
-    
-    
-
+        
