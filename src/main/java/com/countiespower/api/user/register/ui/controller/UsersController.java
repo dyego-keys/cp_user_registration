@@ -75,7 +75,7 @@ public class UsersController {
             List<UserResponse> userResponse = MapperUtils.mapAll(result, UserResponse.class);
 
             Map<String, Object> response = new HashMap<>();
-            response.put("tutorials", userResponse);
+            response.put("users", userResponse);
             response.put("currentPage", pageUsers.getNumber());
             response.put("totalItems", pageUsers.getTotalElements());
             response.put("totalPages", pageUsers.getTotalPages());
